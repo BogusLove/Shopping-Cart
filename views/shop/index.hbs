@@ -1,0 +1,64 @@
+<div class="btn-group" style="float: right; width: 100%">
+    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Sort by <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+        <li><a href="/sort-by/name">Name</a></li>
+        <li><a href="/sort-by/price-l-h">Price(low -> high)</a></li>
+        <li><a href="/sort-by/price-h-l">Price(high -> low)</a></li>
+    </ul>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+{{# each products }}
+    <div class="row">
+        {{# each this}}
+            <div class="col-sm-6 col-md-6">
+
+                <div class="thumbnail">
+                    <img src="{{ this.imagePath}}" alt="..." class="img-responsive">
+                    <div class="caption">
+                        <h3>{{ this.title }}</h3>
+                        <p class="description">{{this.description}}</p>
+                        <div class="clearfix">
+                            <div class="price pull-left">${{this.price}}</div>
+
+                            <div class="btn-group pull-right" role="group" aria-label="...">
+                                <a href="/add-to-cart/{{this._id}}">
+                                    <button type="button" class="btn btn-success">Add to Shopping Cart</button>
+                                </a>
+                                <a href="/add-to-favourite/{{this._id}}">
+                                    <button type="button" class="btn btn-primary">Add to Favourite</button>
+                                </a>
+                                <a href="/show-comment/{{this._id}}">
+                                    <button type="button" class="btn btn-danger" >Show Reviews</button>
+                                </a>
+                                <a id="show-comments-form">
+                                    <button type="button" class="btn btn-warning" onclick="diplay_hide('#comments-form-{{this._id}}');return false;">Add Reviews</button>
+                                </a>
+                                <form action="/add-comment/{{this._id}}" method="post" id="comments-form-{{this._id}}" style="display: none; margin-left: 0px" >
+                                    <br>
+                                    <input type="text" name="name" id="name" placeholder="Name" class="form-control animated"/>
+                                    <textarea class="form-control animated" cols="30" name="text"  id="text" placeholder="Enter your review here..." rows="3"></textarea>
+                                    <input type="submit" value="Add new Comment" class="btn btn-success" style="margin-left: -100px"/>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        {{/each}}
+    </div>
+{{/each}}
+
+<script type="text/javascript">
+    function diplay_hide (blockId)
+    {
+        if ($(blockId).css('display') == 'none') $(blockId).animate({height: 'show'}, 500);
+        else $(blockId).animate({height: 'hide'}, 500);
+    }
+</script>

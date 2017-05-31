@@ -1,0 +1,31 @@
+<div class="container">
+    {{# if hasErrors}}
+        <div class="alert alert-danger">
+            {{# each messages}}
+                <p>{{this}}</p>
+            {{/each}}
+        </div>
+    {{/if}}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="wrap">
+                <p class="form-title">Sign In</p>
+                <form class="login" action="/user/signin" method="post">
+                    <input type="text" name="email" id="email" placeholder="E-mail" />
+                    <input type="password" name="password" id="password" placeholder="Password" />
+                    <input type="submit" value="Sign In" class="btn btn-default btn-sm" />
+                    <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+                    <div class="remember-forgot">
+                        <center>
+                            <div class="row">
+                                <div>
+                                    <p>Don't have an account? <a href="/user/signup">Sign up</a></p>
+                                </div>
+                            </div>
+                        </center>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

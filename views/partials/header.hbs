@@ -1,0 +1,64 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-left">
+                <li>
+                    <a href="/"><img src="https://cdn3.iconfinder.com/data/icons/streamline-icon-set-free-pack/48/Streamline-18-512.png" class="menu-img"><span class="menu-font">Home</span></a>
+                </li>
+                <li>
+                    <a href="/article"><img src="https://cdn2.iconfinder.com/data/icons/budicon-document-2/16/73-document_-_paper_article_news-512.png" class="menu-img"><span class="menu-font">Articles</span></a>
+                </li>
+            <!--<li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <img src="http://www.iconskid.com/images/50/document-icon-black-buy-this-for-099-50920.png" class="menu-img">
+                        <span class="menu-font">Catalogue</span><span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Batman</a></li>
+                        <li><a href="#">Lamborghini</a></li>
+                        <li><a href="#">LG</a></li>
+                        <li><a href="#">Bianchi</a></li>
+                    </ul>
+                </li>-->
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/shopping-cart"><img src="http://simpleicon.com/wp-content/uploads/Shopping-Cart-11.png" class="menu-img">
+                        <span class="menu-font">Shopping Cart</span>
+                        <span class="badge">{{session.cart.totalQty}}</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/favourite"><img src="http://www.odysseyhouse.ca/images/icons/heart74.png" class="" style="width: 75px">
+                        <span class="menu-font">Favourite</span>
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <img src="https://cdn1.iconfinder.com/data/icons/freeline/32/account_friend_human_man_member_person_profile_user_users-512.png" class="menu-img">
+                        <span class="menu-font">Manage</span><span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        {{# if login}}
+                            <li><a href="/user/profile">Account</a></li>
+                            <li><a href="/user/logout">Logout</a></li>
+                        {{else}}
+                            <li><a href="/user/signup">Sign Up</a> </li>
+                            <li><a href="/user/signin">Sign In</a> </li>
+                        {{/if}}
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
